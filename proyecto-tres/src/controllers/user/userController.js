@@ -1,6 +1,5 @@
 import { User, Course, } from "../../models/users.js"
 import mongoose from "mongoose"
-
 import errorHandler from "../../utilties/error.js"
 
 /**
@@ -67,3 +66,4 @@ export const updateUser = (req, res) => {
   }
 };
 
+export const
