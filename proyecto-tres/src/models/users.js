@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const userSchema = mongoose.Schema(
 	{
     userName: { type: String, required: true, trim: true },
-    avatar: { type: String, required: true, trim: true },
+    avatar: { type: String, required: false, trim: true },
 		firstName: { type: String, required: true, trim: true },
 		lastName: { type: String, required: true, trim: true },
 		email: { type: String, required: true, trim: true },
@@ -14,13 +14,26 @@ const userSchema = mongoose.Schema(
 	{ timestamps: true }
 );
 
-const contentSchema = mongoose.Schema(
+const courseSchema = mongoose.Schema(
   {
-    user:{type: mongoose.Schema.Types.ObjectId, ref:"User", required: true},
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    title: {type: String, required: true, trim: true},
+    image: {type: String, required: true, trim: true},
     content: { type: String, required: true, trim: true },
-    link: { type: String, required: true, trim: true}
+    link: { type: String, required: true, trim: true },
+    review: { type: String, required: true, trim: true },
+    rate: [],
   }
 )
 
+const reviewSchema = mongoose.Schema(
+  {
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: false },
+    review: { type: String, required: true, trim: true },
+    rate: []
+  }
+) 
+
 export const User = mongoose.model("User", userSchema, "users");
-export const Content = mongoose.model("Content", contentSchema, "Contents")
+export const Course = mongoose.model("Course", courseSchema, "courses");
+export const Review = mongoose.model("Review", reviewSchema, "reviews");
