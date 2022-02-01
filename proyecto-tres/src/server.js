@@ -5,7 +5,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import {initMongoServer} from "./db/connection.js"
-
+import routers from "./routers/routers.js"
 //Mongoose server starts
 initMongoServer();
 // express to translate the response from the database to JSON
@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 3000;
 
 //database connected using mongoose
 const db = mongoose.connection;
-// app.use("/api",reviewer);//come back later when reviewer is made
+app.use("/api",routers);//come back later when reviewer is made
 
 //app is now working with server side information to create 
 //JSON specific file formats to manipulate and log back any issues

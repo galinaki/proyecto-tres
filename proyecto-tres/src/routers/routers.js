@@ -2,41 +2,43 @@ import express from "express";
 import { getReviews, createReview, deleteReview, updateReview } from "../controllers/user/reviewController.js";
 import { fetchAllUsers } from "../controllers/user/userController.js";
 import {signUpUser,loginUser,logoutUser} from "../controllers/auth/authController.js"
+// import { sign } from "jsonwebtoken";
 // import { authRequired } from "../controllers/auth/authController.js"
 
 const Router = express.Router();
 
 //Home Route
-Router.get("/",)
+Router.get("/", signUpUser)
   
-//Create/sign-up user 
+  //Create/sign-up user 
   .post("/signup", signUpUser)
 
-//Get all users
+  //Get all users
   .get("/users", fetchAllUsers)
 
-//Login user
+  //Login user
   .post("/login", loginUser)
   
-//Log out user
+  //Log out user
   .get("/logout", logoutUser)
   
-//Update user
+  //Update user
   .put("/update/:userName",)
   
-//Delete user 
+  //Delete user 
   .delete("/delete/:id",)
   
-//Get all reviews
+  //Get all reviews
   .get("/reviews", getReviews)
 
-//Create review 
+  //Create review 
   .post("/user/:userName/review", createReview)
 
-//Update review
+  //Update review
   .put("/update/:userid/:id", updateReview)
 
-//Delete review
-  .delete("/delete/:reviewid/:id", deleteReview)
+  //Delete review
+  .delete("/delete/:reviewid/:id", deleteReview);
 
 //Add a course
+export default Router;
