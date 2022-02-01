@@ -1,5 +1,5 @@
 import express from "express";
-import { getReviews } from "../controllers/user/reviewController.js";
+import { getReviews, createReview, deleteReview, updateReview } from "../controllers/user/reviewController.js";
 import { fetchAllUsers } from "../controllers/user/userController.js";
 import {signUpUser,loginUser,logoutUser} from "../controllers/auth/authController.js"
 // import { authRequired } from "../controllers/auth/authController.js"
@@ -31,4 +31,12 @@ Router.get("/",)
   .get("/reviews", getReviews)
 
 //Create review 
-  .post("/post")
+  .post("/user/:userName/review", createReview)
+
+//Update review
+  .put("/update/:userid/:id", updateReview)
+
+//Delete review
+  .delete("/delete/:reviewid/:id", deleteReview)
+
+//Add a course
