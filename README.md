@@ -31,24 +31,27 @@ Update
 | ------- | --------------------------------------------------------------------- | ----------- |
 | Feb 1   | Prompt / Wireframes / Priority Matrix / Timeframes / Project Approval | Incompleted |
 | Feb 2   | Core Application Structure (React components, Backend set up and etc) | Incomplete  |
-| Feb 3   |                                                                       | Incomplete  |
-| Feb 4   |                                                                       | Incomplete  |
-| Feb 5-6 | Initial Clickable Model                                               | Incomplete  |
-| Feb 7   | MVP                                                                   | Incomplete  |
+| Feb 3   | Api calling with axios to backend, Basic Styling done                 | Incomplete  |
+| Feb 4   | Full C.R.U.D. with courses and Reviews,Initial Clickable Model        | Incomplete  |
+| Feb 5-6 | MVP                                                                   | Incomplete  |
+| Feb 7   | Post-MVP                                                              | Incomplete  |
 | Feb 8   | Presentations                                                         | Incomplete  |
 
 ## Timeframes
 
-| Component                | Priority | Estimated Time | Time Invested | Actual Time |
-| ------------------------ | :------: | :------------: | :-----------: | :---------: |
-|                          |    H     |     5 hrs      |     5hrs      |    5 hrs    |
-|                          |    H     |     10 hrs     |    10 hrs     |   10 hrs    |
-|                          |    M     |      6hrs      |     6hrs      |    6hrs     |
-|                          |    L     |    3,5 hrs     |    3,5 hrs    |   3,5 hrs   |
-|                          |    H     |      4hrs      |     4hrs      |    4hrs     |
-| Debugging                |    M     |      4hrs      |     4hrs      |    4hrs     |
-| Styling                  |    L     |     5 hrs      |     5hrs      |    5 hrs    |
-| Polishing and adjustment |    M     |      4hrs      |     4hrs      |    4hrs     |
-| Total                    |    H     |    41,5 hrs    |   41,5 hrs    |  41,5 hrs   |
+| Component                               | Priority | Estimated Time | Time Invested | Actual Time |
+| --------------------------------------- | :------: | :------------: | :-----------: | :---------: |
+| Back&Front-end Routes                   |    H     |     5 hrs      |      hrs      |     hrs     |
+| MongoDB connection                      |    H     |     2 hrs      |      hrs      |     hrs     |
+| MongoDB C.R.U.D.                        |    H     |     3 hrs      |      hrs      |     hrs     |
+| Schema for Course and Reviews           |    M     |     1 hrs      |      hrs      |     hrs     |
+| MongoDB consumption passed to Front-end |    H     |     4 hrs      |      hrs      |     hrs     |
+| Review and liking system                |    M     |      6hrs      |      hrs      |     hrs     |
+| Tailwinds                               |    L     |    3.5 hrs     |      hrs      |     hrs     |
+| Deployment                              |    H     |      4hrs      |      hrs      |     hrs     |
+| Debugging                               |    M     |      4hrs      |      hrs      |     hrs     |
+| More Styling                            |    L     |     5 hrs      |      hrs      |     hrs     |
+| Polishing and adjustment                |    M     |      4hrs      |      hrs      |     hrs     |
+| Total                                   |    H     |    35.5 hrs    |      hrs      |     hrs     |
 
 ## SWOT Analysis
