@@ -1,6 +1,8 @@
 import { User, Course, Review } from "../../models/users.js"
 import mongoose from "mongoose"
+
 import errorHandler from "../../utilties/error.js"
+
 
 export const fetchAllUsers = async (req, res) => {
   try {
@@ -39,6 +41,7 @@ export const deleteUser = async (req, res) => {
     return res.json(errorHandler(true, "Error deleting user"))
   }
 };
+
 
 export const updateUser = (req, res) => {
   try {
@@ -108,3 +111,4 @@ export const updateReview = async (req, res) => {
     return res.json(errorHandler(true, "Error deleting review"))
   }
 }
+
