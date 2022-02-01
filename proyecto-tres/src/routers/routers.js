@@ -40,3 +40,5 @@ Router.get("/",)
   .delete("/delete/:reviewid/:id", deleteReview)
 
 //Add a course
+
+export default Router;
