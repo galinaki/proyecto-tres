@@ -1,9 +1,11 @@
-import { User, Course, Review } from "../../models/users.js"
+import { User, Course, } from "../../models/users.js"
 import mongoose from "mongoose"
 
 import errorHandler from "../../utilties/error.js"
 
-
+/**
+ * USER CONTROLLER
+ */
 export const fetchAllUsers = async (req, res) => {
   try {
     const allUsers = await User.find(
@@ -64,51 +66,4 @@ export const updateUser = (req, res) => {
     return res.json(errorHandler(true, "Error updating user"))
   }
 };
-
-export const deleteReview = async (req, res) => {
-  console.log(req.params.userid, req.params.id);
-  try {
-    Review.findByIdAndDelete(req, params.reviewid),
-
-      { new: true }, (error, deletedReview) => {
-        console.log(deletedReview);
-        if (error) {
-          return res.json(errorHandler(true, "Issues deleting review"))
-        } else {
-          res.json(errorHandler(false, "Deleting review", deletedReview))
-        }
-      }
-  } catch (error) {
-    return res.json(errorHandler(true, "Error deleting Review"))
-  }
-}
-
-export const updateReview = async (req, res) => {
-  console.log(req.params.userid);
-  console.log(mongoose.Types.ObjectId(req.params.id))
-
-  try {
-    Review.findOneAndUpdate(
-      {
-        _id: req.params.reviewid
-      },
-      {
-        $set: {
-          'reviews.$.review': req.body.review
-        }
-      },
-      { new: true },
-      (error, review) => {
-        if (error) {
-          return res.json(errorHandler(true, "Issues updating a review"))
-        } else {
-          res.json(errorHandler(false, "Updating review", review))
-        }
-
-      })
-  }
-  catch (error) {
-    return res.json(errorHandler(true, "Error deleting review"))
-  }
-}
 
