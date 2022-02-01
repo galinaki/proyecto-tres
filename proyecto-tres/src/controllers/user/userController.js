@@ -2,6 +2,9 @@ import { User, Course, Review } from "../../models/users.js"
 import mongoose from "mongoose"
 import errorHandler from "../../utilties/error.js"
 
+/**
+ * USER CONTROLLER
+ */
 export const fetchAllUsers = async (req, res) => {
   try {
     const allUsers = await User.find(
@@ -61,6 +64,39 @@ export const updateUser = (req, res) => {
     return res.json(errorHandler(true, "Error updating user"))
   }
 };
+
+/**
+ * REVIEW CONTROLLERS
+ */
+export const getReviews = async (req, res) => {
+  try {
+
+    console.log(req.params.reviewid);
+    Review.findById(req.params.reviewid).populate("reviews").exec((error, reviews) => {
+      console.log(posts);
+      if (reviews) {
+        res.json(errorHandler(false, "Here are all your Posts", { reviews }));
+      } else {
+        res.json(errorHandler(true, "An error occurred getting your data", { error }))
+      }
+    });
+  } catch (error) {
+  }
+}
+
+export const addReview = async (req, res) => {
+  try {
+    Review.create(req.body, (error, post) => {
+      if (error) {
+        res.redirect("/api")
+        throw new Error(error);
+      }
+    })
+    Review.save()
+  } catch (error) {
+    res.json(errorHandler(true, "Error creating Post", { error: error.message }))
+  }
+}
 
 export const deleteReview = async (req, res) => {
   console.log(req.params.userid, req.params.id);
