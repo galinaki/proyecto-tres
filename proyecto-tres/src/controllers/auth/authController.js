@@ -4,7 +4,7 @@ import { securePassword } from "../../utilities/securePassword.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-// import "dotenv/config";
+import "dotenv/config";
 
 
 export const createToken = id => {
@@ -135,3 +135,4 @@ export const loginUser = async (req, res) => {
 
 export const logoutUser = (req, res) => {
   res.cookie("jwt", "", { maxAge: 1 }).redirect("/api");
+}
