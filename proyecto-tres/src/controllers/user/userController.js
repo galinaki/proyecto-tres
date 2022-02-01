@@ -85,12 +85,26 @@ export const updateReview = async (req, res) => {
   console.log(mongoose.Types.ObjectId(req.params.id))
 
   try {
-    Review.findOneAndUpdate({ _id: req.params.reviewid, reviews: {} })
+    Review.findOneAndUpdate(
+      {
+        _id: req.params.reviewid
+      },
+      {
+        $set: {
+          'reviews.$.review': req.body.review
+        }
+      },
+      { new: true },
+      (error, review) => {
+        if (error) {
+          return res.json(errorHandler(true, "Issues updating a review"))
+        } else {
+          res.json(errorHandler(false, "Updating review", review))
+        }
 
-
-  } catch (error) {
+      })
+  }
+  catch (error) {
     return res.json(errorHandler(true, "Error deleting review"))
-  } else {
-    res.json(errorHandler(false, "Updatinng Review", review))
   }
 }
