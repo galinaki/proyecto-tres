@@ -4,9 +4,10 @@ import logger from "morgan";
 import cors from "cors";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import {initMongoServer} from "./db/connection.js"
 
 //Mongoose server starts
-// initMongoServer();
+initMongoServer();
 // express to translate the response from the database to JSON
 const app = express();
 app.use(express.json());
