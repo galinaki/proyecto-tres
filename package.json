@@ -25,6 +25,22 @@
     "start": "node src/start",
     "dev": "nodemon src/server.js"
   },
+<<<<<<< HEAD:package.json
+=======
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+>>>>>>> cf1071800b77a84691149579162fbb04db7f06dc:proyecto-tres/package.json
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "src/server.js",
   "keywords": [],

@@ -15,9 +15,9 @@ export const fetchAllUsers = async (req, res) => {
         avatar: 1,
       }
     );
-
+console.log(allUsers);
     if (allUsers) {
-      return res.json(errorHandler(false, "Fetching User(s)", allUsers()))
+      return res.json(errorHandler(false, "Fetching User(s)", allUsers))
     } else {
       return res.json(errorHandler(true, "Error Fetching User(s)"))
     }
