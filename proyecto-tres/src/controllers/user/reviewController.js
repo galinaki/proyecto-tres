@@ -10,7 +10,7 @@ export const getReviews = async (req, res) => {
 
     console.log(req.params.reviewid);
     Review.findById(req.params.reviewid).populate("reviews").exec((error, reviews) => {
-      console.log(posts);
+      // console.log(posts);
       if (reviews) {
         res.json(errorHandler(false, "Here are all your Posts", { reviews }));
       } else {
@@ -28,16 +28,11 @@ export const createReview = (req, res) => {
   let body = req.body;
 
   try {
-    Review.findOneAndUpdate(
-      { userName: req.params.userName },
-      {
-        $push: {
-          reviews: {
-            ...body
-          }
-        }
-      },
-
+    Review.create(
+      { user: req.params.userName },
+      { course: req.params.course },
+      {review: body.review},
+      { rate: body.rate },
       { new: true },
       (error, createdReview) => {
         if (createdReview) {
