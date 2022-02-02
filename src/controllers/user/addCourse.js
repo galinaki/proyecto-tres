@@ -2,9 +2,12 @@ import errorHandler from "../../utilities/error.js"
 import {Course} from "../../models/users.js"
 import  mongoose  from "mongoose";
 export const addCourse = (req, res) => {
+
   let body = req.body;
+  
   console.log(mongoose.Types.ObjectId(req.params.id));
   try {
+
     const createCourse=new Course(
        {user: mongoose.Types.ObjectId(req.params.id) ,
         ...body
@@ -65,7 +68,8 @@ export const fetchAllCourses = async (req, res) => {
     );
 console.log(allCourses);
     if (allCourses) {
-      return res.json(errorHandler(false, "Fetching Course(s)", allCourses()))
+      return res.json(errorHandler(false, "Fetching Course(s)", allCourses))
+
     } else {
       return res.status(403).json(errorHandler(true, "Error Fetching Course(s)"))
     }
