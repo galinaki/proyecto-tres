@@ -26,6 +26,9 @@ console.log(allUsers);
   }
 }
 
+/**
+* DELETE USER
+ */
 export const deleteUser = async (req, res) => {
   try {
     User.findByIdAndRemove(
@@ -49,14 +52,13 @@ export const updateUser = (req, res) => {
     User.findOneAndUpdate(
       { userName: req.params.userName },
       req.body,
+      
       { new: true },
       (error, updatedUser) => {
         if (updatedUser) {
-          res.json(errorHandler(false, "Updated User", updatedUser))
+          return res.json(errorHandler(false, "Updated User", updatedUser))
         } else {
-          return res.json(errorHandler(true, "Error Updating User", {
-            error: error.message
-          }))
+          return res.json(errorHandler(true, "Error Updating User"))
         }
       }
     )
