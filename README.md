@@ -1,57 +1,71 @@
-# PostBootcamp - Life After Assembly
+# Getting Started with Create React App
 
-## Project Description
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Website for finding full-stuck materials
-after graduation
+## Available Scripts
 
-## API and Data Sample
+In the project directory, you can run:
 
-## Wireframes/Component Hierarchy
+### `npm start`
 
-See the [Wireframes](https://whimsical.com/react-architecture-exercise-RBBXMDbZMuGDvYotJJxSgk)
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## MVP/PostMVP
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+Will try
 
-#### MVP
+### `npm test`
 
-Technologies like JS=> Courses and Reviews
-Likes count towards their placement on the screen
-C.R.U.D. for comments
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-#### PostMVP
+### `npm run build`
 
-Authorization for adding a course
-Deleting
-Update
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Project Schedule
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-| Day     | Deliverable                                                           | Status      |
-| ------- | --------------------------------------------------------------------- | ----------- |
-| Feb 1   | Prompt / Wireframes / Priority Matrix / Timeframes / Project Approval | Incompleted |
-| Feb 2   | Core Application Structure (React components, Backend set up and etc) | Incomplete  |
-| Feb 3   | Api calling with axios to backend, Basic Styling done                 | Incomplete  |
-| Feb 4   | Full C.R.U.D. with courses and Reviews,Initial Clickable Model        | Incomplete  |
-| Feb 5-6 | MVP                                                                   | Incomplete  |
-| Feb 7   | Post-MVP                                                              | Incomplete  |
-| Feb 8   | Presentations                                                         | Incomplete  |
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Timeframes
+### `npm run eject`
 
-| Component                               | Priority | Estimated Time | Time Invested | Actual Time |
-| --------------------------------------- | :------: | :------------: | :-----------: | :---------: |
-| Back&Front-end Routes                   |    H     |     5 hrs      |      hrs      |     hrs     |
-| MongoDB connection                      |    H     |     2 hrs      |      hrs      |     hrs     |
-| MongoDB C.R.U.D.                        |    H     |     3 hrs      |      hrs      |     hrs     |
-| Schema for Course and Reviews           |    M     |     1 hrs      |      hrs      |     hrs     |
-| MongoDB consumption passed to Front-end |    H     |     4 hrs      |      hrs      |     hrs     |
-| Review and liking system                |    M     |      6hrs      |      hrs      |     hrs     |
-| Tailwinds                               |    L     |    3.5 hrs     |      hrs      |     hrs     |
-| Deployment                              |    H     |      4hrs      |      hrs      |     hrs     |
-| Debugging                               |    M     |      4hrs      |      hrs      |     hrs     |
-| More Styling                            |    L     |     5 hrs      |      hrs      |     hrs     |
-| Polishing and adjustment                |    M     |      4hrs      |      hrs      |     hrs     |
-| Total                                   |    H     |    35.5 hrs    |      hrs      |     hrs     |
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-## SWOT Analysis
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
