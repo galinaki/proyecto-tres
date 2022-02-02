@@ -7,8 +7,9 @@ export const addCourse = (req, res) => {
   
   console.log(mongoose.Types.ObjectId(req.params.id));
   try {
-    const createCourse=new Course({
-        user: mongoose.Types.ObjectId(req.params.id),
+
+    const createCourse=new Course(
+       {user: mongoose.Types.ObjectId(req.params.id) ,
         ...body
       })
     console.log(createCourse);
@@ -68,6 +69,7 @@ export const fetchAllCourses = async (req, res) => {
 console.log(allCourses);
     if (allCourses) {
       return res.json(errorHandler(false, "Fetching Course(s)", allCourses))
+
     } else {
       return res.status(403).json(errorHandler(true, "Error Fetching Course(s)"))
     }
