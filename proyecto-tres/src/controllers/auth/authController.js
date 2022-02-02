@@ -6,12 +6,10 @@ import jwt from "jsonwebtoken";
 
 import "dotenv/config";
 
-
 export const createToken = id => {
   const SECRET = process.env.SECRET;
   return jwt.sign({ id }, SECRET, { expiresIn: 84000 });
 };
-
 
 export const authRequired = (req, res, next) => {
   const SECRET = process.env.SECRET || "home";
@@ -25,9 +23,7 @@ export const authRequired = (req, res, next) => {
   if (token) {
     jwt.verify(token, SECRET, (error, decodedTkn) => {
       if (error) {
-        return res
-          .status(401)
-          .json(errorHandler(true, "Auth Error"))
+        return res.status(401).json(errorHandler(true, "Auth Error"));
         // .redirect("/login");
       } else {
         next();
@@ -47,7 +43,7 @@ export const signUpUser = async (req, res) => {
   try {
     const existingUser = await User.findOne({
       email: req.body.email.toLowerCase(),
-      userName: req.body.userName,
+      userName: req.body.userName
     }).lean(true);
 
     if (existingUser) {
@@ -63,7 +59,7 @@ export const signUpUser = async (req, res) => {
       email: req.body.email,
       password: req.body.password,
       confirmPassword: req.body.confirmPassword,
-      isAdmin: req.body.isAdmin,
+      isAdmin: req.body.isAdmin
     });
 
     if (newUser) {
@@ -94,15 +90,13 @@ export const signUpUser = async (req, res) => {
   }
 };
 
-
-
 export const loginUser = async (req, res) => {
   try {
     const user = await User.findOne(
       {
         email: req.body.email.toLowerCase()
       },
-      { confirmPassword: 0, }
+      { confirmPassword: 0 }
     );
     if (!user) {
       return res.json(
@@ -111,8 +105,7 @@ export const loginUser = async (req, res) => {
     }
     const auth = await bcrypt.compare(req.body.password, user.password);
     if (!auth) {
-      return res.json(
-        errorHandler(true, "Password is incorrect"));
+      return res.json(errorHandler(true, "Password is incorrect"));
     }
 
     const { userName } = user;
@@ -120,19 +113,20 @@ export const loginUser = async (req, res) => {
 
     res.cookie("jwt", token, {
       httpOnly: "true",
-      maxAge: 84000,
+      maxAge: 84000
     });
-    res.json(errorHandler(false, `Welcome back ${userName}`, {
-      user,
-      token,
-    }));
-    req.session.user = user;
-
+    res.json(
+      errorHandler(false, `Welcome back ${userName}`, {
+        user,
+        token
+      })
+    );
+    // req.session.user = user;
   } catch (error) {
     return res.json(errorHandler(true, "Trouble Logging in user"));
   }
-}
+};
 
 export const logoutUser = (req, res) => {
   res.cookie("jwt", "", { maxAge: 1 }).redirect("/api");
-}
+};
