@@ -8,16 +8,23 @@ import errorHandler from "../../utilities/error.js"
 export const getReviews = async (req, res) => {
   try {
 
-    console.log(req.params.reviewid);
-    Review.findById(req.params.reviewid).populate("reviews").exec((error, reviews) => {
-      // console.log(posts);
-      if (reviews) {
-        res.json(errorHandler(false, "Here are all your Posts", { reviews }));
-      } else {
-        res.json(errorHandler(true, "An error occurred getting your data", { error }))
+    const allReviews = await Review.find(
+      {},
+      {
+        _id: 1,
+        course: 1,
+        review: 1,
+        rate: 1
       }
-    });
+    );
+console.log(allReviews);
+    if (allReviews) {
+      return res.json(errorHandler(false, "Fetching review(s)", allReviews))
+    } else {
+      return res.json(errorHandler(true, "Error Fetching review(s)"))
+    }
   } catch (error) {
+    return res.json(errorHandler(true, "Error Fetching review(s)"))
   }
 }
 
