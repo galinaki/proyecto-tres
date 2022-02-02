@@ -30,26 +30,26 @@ Router.get("/", defaultController)
   //Delete user 
   .delete("/delete/:id", deleteUser)
   
-//Get a review
+//Get a course
   .get("/course/:courseId", getCourse)
   
-//Get all reviews
+//Get all courses
 .get("/courses", fetchAllCourses)
 
-//Create review 
+//Create course 
 .post("/user/:userName/:id/course", addCourse)
 
 //Update review
 // .put("/update/:userid/:id", updateReview)
 
 //Delete review
-// .delete("/delete/:reviewid/:id", deleteReview);
+.delete("/delete/:reviewid/:id", deleteReview)
 
   //Get all reviews
   .get("/reviews", getReviews)
 
   //Create review 
-  .post("/user/:userName/:course/review", createReview)
+  .post("/user/:userName/:courseid/review", createReview)
 
   //Update review
   .put("/update/:userid/:id", updateReview)
