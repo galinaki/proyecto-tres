@@ -26,7 +26,7 @@ export const authRequired = (req, res, next) => {
     jwt.verify(token, SECRET, (error, decodedTkn) => {
       if (error) {
         return res
-          .status(401)
+          // .status(401)
           .json(errorHandler(true, "Auth Error"))
         // .redirect("/login");
       } else {
