@@ -1,7 +1,10 @@
 import { Review } from "../../models/users.js"
 import mongoose from "mongoose"
-import errorHandler from "../../utilties/error.js"
+import errorHandler from "../../utilities/error.js"
 
+/**
+ * GET REVIEWS
+ */
 export const getReviews = async (req, res) => {
   try {
 
@@ -18,20 +21,42 @@ export const getReviews = async (req, res) => {
   }
 }
 
-export const addReview = async (req, res) => {
-  try {
-    Review.create(req.body, (error, post) => {
-      if (error) {
-        res.redirect("/api")
-        throw new Error(error);
-      }
-    })
-    Review.save()
-  } catch (error) {
-    res.json(errorHandler(true, "Error creating Post", { error: error.message }))
-  }
-}
+/**
+ * CREATE REVIEW
+ */
+export const createReview = (req, res) => {
+  let body = req.body;
 
+  try {
+    Review.findOneAndUpdate(
+      { userName: req.params.userName },
+      {
+        $push: {
+          reviews: {
+            ...body
+          }
+        }
+      },
+
+      { new: true },
+      (error, createdReview) => {
+        if (createdReview) {
+          res.json(errorHandler(false, "creating review!", createdReview))
+        } else {
+          return res.json(errorHandler(true, "Error creating review", {
+            error: error.message
+          }))
+        }
+      }
+    )
+  } catch (error) {
+    return res.json(errorHandler(true, "Error updating user"))
+  }
+};
+
+/**
+ * DELETE REVIEW
+ */
 export const deleteReview = async (req, res) => {
   console.log(req.params.userid, req.params.id);
   try {
@@ -50,6 +75,9 @@ export const deleteReview = async (req, res) => {
   }
 }
 
+/**
+ * UPDATE REVIEW
+ */
 export const updateReview = async (req, res) => {
   console.log(req.params.userid);
   console.log(mongoose.Types.ObjectId(req.params.id))
@@ -78,3 +106,4 @@ export const updateReview = async (req, res) => {
     return res.json(errorHandler(true, "Error deleting review"))
   }
 }
+
