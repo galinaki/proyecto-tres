@@ -1,4 +1,8 @@
 {
+  "engines": {
+    "node": "17.4.0",
+    "npm": "8.3.1"
+  },
   "name": "proyecto-tres",
   "version": "0.1.0",
   "private": true,
