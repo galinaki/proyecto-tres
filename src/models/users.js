@@ -16,7 +16,7 @@ const userSchema = mongoose.Schema(
 
 const courseSchema = mongoose.Schema(
   {
-    // user: { type: mongoose.Schema.Types.ObjectId, ref: "user", required: true },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     title: { type: String, required: true, trim: true },
     image: { type: String, required: false, trim: true },
     content: { type: String, required: false, trim: true },

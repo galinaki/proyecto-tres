@@ -11,8 +11,8 @@ import user from "./routers/routers.js";
 const db = mongoose.connection;
 const PORT = process.env.PORT || 3000;
 // express to translate the response from the database to JSON
-const app = express();
 initMongoServer();
+const app = express();
 //app is now working with server side information to create
 //JSON specific file formats to manipulate and log back any issues
 app
