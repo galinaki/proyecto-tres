@@ -10,7 +10,7 @@ export const getReviews = async (req, res) => {
 
     console.log(req.params.reviewid);
     Review.findById(req.params.reviewid).populate("reviews").exec((error, reviews) => {
-      console.log(posts);
+      // console.log(posts);
       if (reviews) {
         res.json(errorHandler(false, "Here are all your Posts", { reviews }));
       } else {
