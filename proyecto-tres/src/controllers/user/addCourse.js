@@ -2,7 +2,9 @@ import errorHandler from "../../utilities/error.js"
 import {Course} from "../../models/users.js"
 import  mongoose  from "mongoose";
 export const addCourse = (req, res) => {
+
   let body = req.body;
+  
   console.log(mongoose.Types.ObjectId(req.params.id));
   try {
     const createCourse=new Course(
