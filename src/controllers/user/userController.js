@@ -15,17 +15,20 @@ export const fetchAllUsers = async (req, res) => {
         avatar: 1,
       }
     );
-
+console.log(allUsers);
     if (allUsers) {
-      return res.json(errorHandler(false, "Fetching User(s)", allUsers()))
+      return res.json(errorHandler(false, "Fetching User(s)", allUsers))
     } else {
-      return res.status(403).json(errorHandler(true, "Error Fetching User(s)"))
+      return res.json(errorHandler(true, "Error Fetching User(s)"))
     }
   } catch (error) {
-    return res.status(400).json(errorHandler(true, "Error Fetching user(s"))
+    return res.json(errorHandler(true, "Error Fetching user(s"))
   }
 }
 
+/**
+* DELETE USER
+ */
 export const deleteUser = async (req, res) => {
   try {
     User.findByIdAndRemove(
@@ -49,14 +52,15 @@ export const updateUser = (req, res) => {
     User.findOneAndUpdate(
       { userName: req.params.userName },
       req.body,
+    
       { new: true },
       (error, updatedUser) => {
         if (updatedUser) {
-          res.json(errorHandler(false, "Updated User", updatedUser))
+          return res.json(errorHandler(false, "Updated User", updatedUser))
         } else {
           return res.json(errorHandler(true, "Error Updating User", {
-            error: error.message
-          }))
+						error: error
+					}))
         }
       }
     )

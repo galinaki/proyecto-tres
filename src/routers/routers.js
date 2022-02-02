@@ -1,7 +1,8 @@
 import express from "express";
 import { getReviews, createReview, deleteReview, updateReview } from "../controllers/user/reviewController.js";
-import {addCourse,getCourse} from "../controllers/user/addCourse.js";
-import { fetchAllUsers } from "../controllers/user/userController.js";
+import {addCourse,getCourse,fetchAllCourses} from "../controllers/user/addCourse.js";
+import { fetchAllUsers, updateUser, deleteUser } from "../controllers/user/userController.js";
+import defaultController from "../controllers/defaultController.js"
 import {signUpUser,loginUser,logoutUser} from "../controllers/auth/authController.js"
 // import { sign } from "jsonwebtoken";
 // import { authRequired } from "../controllers/auth/authController.js"
@@ -9,7 +10,7 @@ import {signUpUser,loginUser,logoutUser} from "../controllers/auth/authControlle
 const Router = express.Router();
 
 //Home Route
-Router.get("/", signUpUser)
+Router.get("/", defaultController)
   
   //Create/sign-up user 
   .post("/signup", signUpUser)
@@ -24,28 +25,31 @@ Router.get("/", signUpUser)
   .get("/logout", logoutUser)
   
   //Update user
-  .put("/update/:userName",)
+  .put("/update/:userName", updateUser)
   
   //Delete user 
-  .delete("/delete/:id",)
+  .delete("/delete/:id", deleteUser)
   
-//Get all reviews
-.get("/course/:courseId", getCourse)
+//Get a course
+  .get("/course/:courseId", getCourse)
+  
+//Get all courses
+.get("/courses", fetchAllCourses)
 
-//Create review 
-.post("/user/:userName/course", addCourse)
+//Create course 
+.post("/user/:userName/:id/course", addCourse)
 
 //Update review
 // .put("/update/:userid/:id", updateReview)
 
 //Delete review
-// .delete("/delete/:reviewid/:id", deleteReview);
+.delete("/delete/:reviewid/:id", deleteReview)
 
   //Get all reviews
   .get("/reviews", getReviews)
 
   //Create review 
-  .post("/user/:userName/:course/review", createReview)
+  .post("/user/:userName/:courseid/review", createReview)
 
   //Update review
   .put("/update/:userid/:id", updateReview)

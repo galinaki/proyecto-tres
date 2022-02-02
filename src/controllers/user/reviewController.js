@@ -28,25 +28,27 @@ export const createReview = (req, res) => {
   let body = req.body;
 
   try {
-    Review.create(
-      { user: req.params.userName },
-      { course: req.params.course },
-      {review: body.review},
-      { rate: body.rate },
-      { new: true },
-      (error, createdReview) => {
-        if (createdReview) {
-          res.json(errorHandler(false, "creating review!", createdReview))
+   
+   const createReview = new Review(
+
+      // { user: mongoose.Schema.Types.ObjectId(req.params.userName),
+     {course: req.params.courseid,
+     ...body
+  })
+      console.log(createReview)
+      // { new: true },
+      
+        if (createReview) {
+          res.json(errorHandler(false, "creating review!", createReview))
         } else {
           return res.json(errorHandler(true, "Error creating review", {
             error: error.message
           }))
         }
+        createReview.save()
+      } catch (error){
+        return res.json(errorHandler(true, "Error creating review"))
       }
-    )
-  } catch (error) {
-    return res.json(errorHandler(true, "Error updating user"))
-  }
 };
 
 /**
