@@ -20,12 +20,19 @@
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.9",
+<<<<<<< HEAD
     "morgan": "^1.10.0",
     "react-dom": "^17.0.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
+=======
+    "morgan": "^1.10.0"
+  },
+  "scripts": {
+    "start": "node src/start",
+>>>>>>> a3322f29d6b1d80905200f2da52a583ebbd06d5a
     "dev": "nodemon src/server.js"
   },
   "eslintConfig": {
