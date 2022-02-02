@@ -1,7 +1,7 @@
 import express from "express";
 import { getReviews, createReview, deleteReview, updateReview } from "../controllers/user/reviewController.js";
 import {addCourse,getCourse,fetchAllCourses} from "../controllers/user/addCourse.js";
-import { fetchAllUsers, updateUser } from "../controllers/user/userController.js";
+import { fetchAllUsers, updateUser, deleteUser } from "../controllers/user/userController.js";
 import defaultController from "../controllers/defaultController.js"
 import {signUpUser,loginUser,logoutUser} from "../controllers/auth/authController.js"
 // import { sign } from "jsonwebtoken";
@@ -28,7 +28,7 @@ Router.get("/", defaultController)
   .put("/update/:userName", updateUser)
   
   //Delete user 
-  .delete("/delete/:id",)
+  .delete("/delete/:id", deleteUser)
   
 //Get a review
   .get("/course/:courseId", getCourse)
