@@ -7,8 +7,8 @@ export const addCourse = (req, res) => {
   
   console.log(mongoose.Types.ObjectId(req.params.id));
   try {
-    const createCourse=new Course(
-       {user: mongoose.Types.ObjectId(req.params.id) ,
+    const createCourse=new Course({
+        user: mongoose.Types.ObjectId(req.params.id),
         ...body
       })
     console.log(createCourse);
