@@ -28,16 +28,11 @@ export const createReview = (req, res) => {
   let body = req.body;
 
   try {
-    Review.findOneAndUpdate(
-      { userName: req.params.userName },
-      {
-        $push: {
-          reviews: {
-            ...body
-          }
-        }
-      },
-
+    Review.create(
+      { user: req.params.userName },
+      { course: req.params.course },
+      {review: body.review},
+      { rate: body.rate },
       { new: true },
       (error, createdReview) => {
         if (createdReview) {
