@@ -2,6 +2,7 @@ import express from "express";
 import { getReviews, createReview, deleteReview, updateReview } from "../controllers/user/reviewController.js";
 import {addCourse,getCourse,fetchAllCourses} from "../controllers/user/addCourse.js";
 import { fetchAllUsers } from "../controllers/user/userController.js";
+import { defaultController } from "../controllers/defaultController.js"
 import {signUpUser,loginUser,logoutUser} from "../controllers/auth/authController.js"
 // import { sign } from "jsonwebtoken";
 // import { authRequired } from "../controllers/auth/authController.js"
@@ -9,7 +10,7 @@ import {signUpUser,loginUser,logoutUser} from "../controllers/auth/authControlle
 const Router = express.Router();
 
 //Home Route
-Router.get("/", signUpUser)
+Router.get("/", defaultController)
   
   //Create/sign-up user 
   .post("/signup", signUpUser)
