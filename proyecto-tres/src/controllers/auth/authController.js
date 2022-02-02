@@ -14,7 +14,7 @@ export const createToken = id => {
 
 
 export const authRequired = (req, res, next) => {
-  const SECRET = process.env.SECRET || "home";
+  const SECRET = process.env.SECRET || "Banner";
   // const token = req.cookies.jwt;
   console.log(SECRET);
   console.log(req.headers.authorization);
