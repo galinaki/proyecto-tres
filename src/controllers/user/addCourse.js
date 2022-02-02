@@ -45,7 +45,7 @@ export const getCourse = async (req, res) => {
     if (allCourses) {
       return res.json(errorHandler(false, "Fetching Course(s)", allCourses))
     } else {
-      return res.status(403).json(errorHandler(true, "Error Fetching Course(s)"))
+      return res.json(errorHandler(true, "Error Fetching Course(s)"))
     }
   } catch (error) {
     return res.json(errorHandler(true, "Error fetching course"))
