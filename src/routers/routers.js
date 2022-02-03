@@ -3,7 +3,7 @@ import { getReviews, createReview, deleteReview, updateReview } from "../control
 import {addCourse,getCourse,fetchAllCourses} from "../controllers/user/addCourse.js";
 import { fetchAllUsers, updateUser, deleteUser } from "../controllers/user/userController.js";
 import defaultController from "../controllers/defaultController.js"
-import {signUpUser,loginUser,logoutUser} from "../controllers/auth/authController.js"
+import {signUpUser,loginUser,logoutUser, authRequired} from "../controllers/auth/authController.js"
 import cors from "cors"
 // import { sign } from "jsonwebtoken";
 // import { authRequired } from "../controllers/auth/authController.js"
@@ -22,7 +22,7 @@ Router.get("/",cors(), defaultController)
   .post("/signup",cors(), signUpUser)
 
   //Get all users
-  .get("/users",cors(), fetchAllUsers)
+  .get("/users",cors(),authRequired, fetchAllUsers)
 
   //Login user
   .post("/login",cors(), loginUser)
@@ -31,11 +31,11 @@ Router.get("/",cors(), defaultController)
   .get("/logout",cors(), logoutUser)
   
   //Update user
-  .put("/update/:userName",cors(), updateUser)
+  .put("/update/:userName",cors(),authRequired, updateUser)
 
  
   //Delete user 
-  .delete("/delete/:id",cors(), deleteUser)
+  .delete("/delete/:id",cors(),authRequired, deleteUser)
   
 //Get a course
   .get("/courses/:courseId",cors(), getCourse)
@@ -44,22 +44,20 @@ Router.get("/",cors(), defaultController)
 .get("/courses",cors(), fetchAllCourses)
 
 //Create course 
-.post("/addcourse",cors(), addCourse)
+.post("/addcourse",cors(),authRequired, addCourse)
 
-//Delete review
-.delete("/delete/:reviewid/:id",cors(), deleteReview)
 
   //Get all reviews
   .get("/reviews",cors(), getReviews)
 
   //Create review 
-  .post("courses/:courseid/addreview",cors(), createReview)
+  .post("courses/:courseid/addreview",cors(),authRequired, createReview)
 
   //Update review
-  .put("/update/:userid/:id",cors(), updateReview)
+  .put("/update/:userid/:id",cors(),authRequired, updateReview)
 
   //Delete review
-  .delete("/delete/:reviewid/:id",cors(), deleteReview);
+  .delete("/delete/:reviewid/:id",cors(),authRequired, deleteReview);
 
 //Add a course
 export default Router;
