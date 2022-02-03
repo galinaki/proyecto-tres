@@ -53,7 +53,7 @@ Router.get("/",cors(), defaultController)
   .get("/reviews",cors(), getReviews)
 
   //Create review 
-  .post("/user/:userName/:courseid/review",cors(), createReview)
+  .post("courses/:courseid/addreview",cors(), createReview)
 
   //Update review
   .put("/update/:userid/:id",cors(), updateReview)
