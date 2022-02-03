@@ -32,7 +32,8 @@ Router.get("/",cors(), defaultController)
   
   //Update user
   .put("/update/:userName",cors(), updateUser)
-  
+
+
   //Delete user 
   .delete("/delete/:id",cors(), deleteUser)
   
@@ -52,7 +53,7 @@ Router.get("/",cors(), defaultController)
 .delete("/delete/:reviewid/:id",cors(), deleteReview)
 
   //Get all reviews
-  .get("/reviews", getReviews)
+  .get("/reviews",cors(), getReviews)
 
   //Create review 
   .post("/user/:userName/:courseid/review",cors(), createReview)
