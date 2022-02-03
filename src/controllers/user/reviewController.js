@@ -27,8 +27,8 @@ console.log(allReviews);
     return res.json(errorHandler(true, "Error Fetching review(s)"))
   }
 }
-
-/**
+ 
+/*
  * CREATE REVIEW
  */
 export const createReview = (req, res) => {
