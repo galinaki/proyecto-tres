@@ -52,13 +52,16 @@ export const updateUser = (req, res) => {
     User.findOneAndUpdate(
       { userName: req.params.userName },
       req.body,
-      
+
       { new: true },
       (error, updatedUser) => {
         if (updatedUser) {
           return res.json(errorHandler(false, "Updated User", updatedUser))
         } else {
-          return res.json(errorHandler(true, "Error Updating User"))
+          return res.json(errorHandler(true, "Error Updating User", {
+						error: error
+					}))
+
         }
       }
     )
