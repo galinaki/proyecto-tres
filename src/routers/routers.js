@@ -14,12 +14,12 @@ import cors from "cors"
 // import { authRequired } from "../controllers/auth/authController.js"
 
 const Router = express.Router();
-const options={
-  "origin": "*",
-  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-  "preflightContinue": true,
-  "optionsSuccessStatus": 204
-}
+// const options={
+//   "origin": "*",
+//   "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   "preflightContinue": true,
+//   "optionsSuccessStatus": 204
+// }
 //Home Route
 Router.get("/",cors(), defaultController)
   
@@ -43,7 +43,7 @@ Router.get("/",cors(), defaultController)
   .delete("/delete/:id",cors(), deleteUser)
   
 //Get a course
-  .get("/course/:courseId", getCourse)
+  .get("/course/:courseId",cors(), getCourse)
   
 //Get all courses
 .get("/courses",cors(), fetchAllCourses)
@@ -58,7 +58,7 @@ Router.get("/",cors(), defaultController)
 .delete("/delete/:reviewid/:id",cors(), deleteReview)
 
   //Get all reviews
-  .get("/reviews", getReviews)
+  .get("/reviews",cors(), getReviews)
 
   //Create review 
   .post("/user/:userName/:courseid/review",cors(), createReview)
