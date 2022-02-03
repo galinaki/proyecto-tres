@@ -1,6 +1,8 @@
 import errorHandler from "../../utilities/error.js"
 import {Course} from "../../models/users.js"
 import  mongoose  from "mongoose";
+
+
 export const addCourse = (req, res) => {
 
   let body = req.body;
@@ -31,7 +33,7 @@ export const getCourse = async (req, res) => {
   try {
     console.log(req.params.courseId);
     const allCourses = await Course.find(
-      {id:req.params.courseId},
+      {_id:req.params.courseId},
       {
         user: 1,
         title: 1,

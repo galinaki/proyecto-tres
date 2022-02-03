@@ -9,12 +9,12 @@ import cors from "cors"
 // import { authRequired } from "../controllers/auth/authController.js"
 
 const Router = express.Router();
-// const options={
-//   "origin": "*",
-//   "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-//   "preflightContinue": true,
-//   "optionsSuccessStatus": 204
-// }
+const options={
+  "origin": "*",
+  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+  "preflightContinue": true,
+  "optionsSuccessStatus": 204
+}
 //Home Route
 Router.get("/",cors(), defaultController)
   
@@ -32,21 +32,19 @@ Router.get("/",cors(), defaultController)
   
   //Update user
   .put("/update/:userName",cors(), updateUser)
-  
+
+ 
   //Delete user 
   .delete("/delete/:id",cors(), deleteUser)
   
 //Get a course
-  .get("/course/:courseId",cors(), getCourse)
+  .get("/courses/:courseId",cors(), getCourse)
   
 //Get all courses
 .get("/courses",cors(), fetchAllCourses)
 
 //Create course 
-.post("/user/:userName/:id/course",cors(), addCourse)
-
-//Update review
-// .put("/update/:userid/:id", updateReview)
+.post("/addcourse",cors(), addCourse)
 
 //Delete review
 .delete("/delete/:reviewid/:id",cors(), deleteReview)
@@ -55,7 +53,7 @@ Router.get("/",cors(), defaultController)
   .get("/reviews",cors(), getReviews)
 
   //Create review 
-  .post("/user/:userName/:courseid/review",cors(), createReview)
+  .post("courses/:courseid/addreview",cors(), createReview)
 
   //Update review
   .put("/update/:userid/:id",cors(), updateReview)
