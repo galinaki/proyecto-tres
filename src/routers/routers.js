@@ -9,12 +9,12 @@ import cors from "cors"
 // import { authRequired } from "../controllers/auth/authController.js"
 
 const Router = express.Router();
-const options={
-  "origin": "*",
-  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-  "preflightContinue": true,
-  "optionsSuccessStatus": 204
-}
+// const options={
+//   "origin": "*",
+//   "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   "preflightContinue": true,
+//   "optionsSuccessStatus": 204
+// }
 //Home Route
 Router.get("/",cors(), defaultController)
   
