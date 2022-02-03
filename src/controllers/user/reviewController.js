@@ -22,7 +22,7 @@ export const getReviews = async (req, res) => {
 }
 
 /**
- * CREATE REVIEW
+ ** CREATE REVIEW
  */
 export const createReview = (req, res) => {
   let body = req.body;
