@@ -11,8 +11,8 @@ import user from "./routers/routers.js";
 const db = mongoose.connection;
 const PORT = process.env.PORT || 3000;
 // express to translate the response from the database to JSON
-const app = express();
 initMongoServer();
+const app = express();
 //app is now working with server side information to create
 //JSON specific file formats to manipulate and log back any issues
 app
@@ -23,9 +23,9 @@ app
 
 	.use(express.json())
 	//when making requests the cors headers can cause issues without this
-	.use(cors())
+  .use(cors())
 	.use("/api", user); //come back later when reviewer is made
-
+app.options("*",cors())
 //response on database connection
 db.on("error", error => console.log(error.message));
 db.on("connected", () => console.log("Mongo is connected"));
