@@ -28,9 +28,7 @@ console.log(allReviews);
   }
 }
 
-/**
- ** CREATE REVIEW
- */
+
 export const createReview = (req, res) => {
   let body = req.body;
 
