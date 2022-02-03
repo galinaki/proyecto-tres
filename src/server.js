@@ -23,7 +23,7 @@ app
 
 	.use(express.json())
 	//when making requests the cors headers can cause issues without this
-	.use(cors())
+	.use("*",cors())
 	.use("/api", user); //come back later when reviewer is made
 
 //response on database connection
