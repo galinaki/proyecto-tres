@@ -38,7 +38,7 @@ Router.get("/",cors(), defaultController)
   .delete("/delete/:id",cors(), deleteUser)
   
 //Get a course
-  .get("/course/:courseId",cors(), getCourse)
+  .get("/courses/:courseId",cors(), getCourse)
   
 //Get all courses
 .get("/courses",cors(), fetchAllCourses)
