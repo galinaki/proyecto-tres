@@ -33,7 +33,7 @@ Router.get("/",cors(), defaultController)
   //Update user
   .put("/update/:userName",cors(), updateUser)
 
-
+ 
   //Delete user 
   .delete("/delete/:id",cors(), deleteUser)
   
