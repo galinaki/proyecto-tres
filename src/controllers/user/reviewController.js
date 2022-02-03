@@ -29,18 +29,19 @@ console.log(allReviews);
 }
 
 
-export const createReview = (req, res) => {
+export const createReview = async (req, res) => {
   let body = req.body;
-
+  console.log(req.body,mongoose.Types.ObjectId(req.params.courseid));
   try {
    
-   const createReview = new Review(
-
+    const createReview = new Review(
       // { user: mongoose.Schema.Types.ObjectId(req.params.userName),
-     {course: req.params.courseid,
-     ...body
-  })
-      console.log(createReview)
+      {
+        course: mongoose.Types.ObjectId(req.params.courseid),
+        ...body
+      });
+    
+      console.log(createReview);
       // { new: true },
       
         if (createReview) {
@@ -50,7 +51,7 @@ export const createReview = (req, res) => {
             error: error.message
           }))
         }
-        createReview.save()
+    await createReview.save();
       } catch (error){
         return res.json(errorHandler(true, "Error creating review"))
       }
@@ -60,10 +61,9 @@ export const createReview = (req, res) => {
  * DELETE REVIEW
  */
 export const deleteReview = async (req, res) => {
-  console.log(req.params.userid, req.params.id);
+  console.log(req.params.reviewid);
   try {
-    Review.findByIdAndDelete(req, params.reviewid),
-
+    Review.findByIdAndDelete(req.params.reviewid,
       { new: true }, (error, deletedReview) => {
         console.log(deletedReview);
         if (error) {
@@ -71,7 +71,7 @@ export const deleteReview = async (req, res) => {
         } else {
           res.json(errorHandler(false, "Deleting review", deletedReview))
         }
-      }
+      })
   } catch (error) {
     return res.json(errorHandler(true, "Error deleting Review"))
   }
