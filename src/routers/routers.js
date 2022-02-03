@@ -46,9 +46,6 @@ Router.get("/",cors(), defaultController)
 //Create course 
 .post("/addcourse",cors(), addCourse)
 
-//Update review
-// .put("/update/:userid/:id", updateReview)
- 
 //Delete review
 .delete("/delete/:reviewid/:id",cors(), deleteReview)
 
