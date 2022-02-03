@@ -23,9 +23,9 @@ app
 
 	.use(express.json())
 	//when making requests the cors headers can cause issues without this
-	.use("*",cors())
+  .use(cors())
 	.use("/api", user); //come back later when reviewer is made
-
+app.options("*",cors())
 //response on database connection
 db.on("error", error => console.log(error.message));
 db.on("connected", () => console.log("Mongo is connected"));
