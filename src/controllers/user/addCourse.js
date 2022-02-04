@@ -40,6 +40,7 @@ export const getCourse = async (req, res) => {
         image: 1,
         content: 1,
         link: 1,
+        types:1,
         review: 1,
         rate: 1,
       }
