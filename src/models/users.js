@@ -21,6 +21,7 @@ const courseSchema = mongoose.Schema(
     image: { type: String, required: false, trim: true },
     content: { type: String, required: false, trim: true },
     link: { type: String, required: false, trim: true },
+    types: { type: String, required: false, trim: true },
     review: { type: String, required: true, trim: true },
     rate: [],
   }
