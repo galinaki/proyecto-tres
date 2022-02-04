@@ -58,5 +58,5 @@ Router.get("/",cors(), defaultController)
   //Delete review
 .delete("/delete/review/:reviewid",cors(),authRequired, deleteReview);
 
-//Add a course
+//Add a coursegi
 export default Router;
