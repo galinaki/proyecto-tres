@@ -66,6 +66,7 @@ export const fetchAllCourses = async (req, res) => {
         user: 1,
         title: 1,
         review: 1,
+        types:1,
         rate:1,
       }
     );
