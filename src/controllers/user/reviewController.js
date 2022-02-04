@@ -13,6 +13,7 @@ export const getReviews = async (req, res) => {
       {
         _id: 1,
         course: 1,
+        author:1,
         review: 1,
         rate: 1
       }
