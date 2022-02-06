@@ -29,8 +29,7 @@ const courseSchema = mongoose.Schema(
 
 const reviewSchema = mongoose.Schema(
   {
-    // user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: false },
-    // postedBy: userSchema,
+    author: { type: String, required: true },
     course: { type: mongoose.Schema.Types.ObjectId, ref: "Course", required: false },
     review: { type: String, required: true, trim: true },
     rate: { type: Number, required: true, trim: true },
