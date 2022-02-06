@@ -106,7 +106,7 @@ export const updateReview = async (req, res) => {
       })
   }
   catch (error) {
-    return res.json(errorHandler(true, "Error deleting review"))
+    return res.json(errorHandler(true, "Error updating review"))
   }
 }
 
