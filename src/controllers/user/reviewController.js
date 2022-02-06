@@ -13,6 +13,7 @@ export const getReviews = async (req, res) => {
       {
         _id: 1,
         course: 1,
+        author:1,
         review: 1,
         rate: 1
       }
@@ -105,7 +106,7 @@ export const updateReview = async (req, res) => {
       })
   }
   catch (error) {
-    return res.json(errorHandler(true, "Error deleting review"))
+    return res.json(errorHandler(true, "Error updating review"))
   }
 }
 
