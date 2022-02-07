@@ -47,40 +47,25 @@ Router.get("/", cors(), defaultController)
   .post("/addcourse", cors(), authRequired, addCourse)
 
 
-<<<<<<< HEAD
-  //Get all reviews
-  .get("/reviews", getReviews)
-
-  //Create review 
+  /*
+   *Create Review
+  */
   .post("/courses/addreview/:courseid", cors(), authRequired, createReview)
+  /**
+   *Read all Reviews
+   */
+  .get("/reviews", getReviews)
+  /*
+  *Update Review
+  */
+  .put("/update/:id/:reviewid", cors(), authRequired, updateReview)
 
-  .put("/update/:userid/:id", cors(), authRequired, updateReview)
-
-  //Delete review
-  .delete("/delete/review/:reviewid", cors(), authRequired, deleteReview);
-
-//Add a coursegi
-=======
-/*
- *Create Review
-*/
-.post("/courses/addreview/:courseid",cors(),authRequired, createReview)
-/**
- *Read all Reviews
- */
-.get("/reviews", getReviews)
-/*
-*Update Review
-*/
-.put("/update/:id/:reviewid",cors(),authRequired,updateReview)
-
-/**
- *Delete Review
- */
-.delete("/delete/review/:reviewid",cors(),authRequired, deleteReview)
-/**
- *Delete Course
- */
- .delete("/delete/course/:courseid",cors(),authRequired, deleteCourse);
->>>>>>> 2bdab7f77181dadf1d141b5cd862439097c66fdc
+  /**
+   *Delete Review
+   */
+  .delete("/delete/review/:reviewid", cors(), authRequired, deleteReview)
+  /**
+   *Delete Course
+   */
+  .delete("/delete/course/:courseid", cors(), authRequired, deleteCourse);
 export default Router;
