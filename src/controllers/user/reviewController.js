@@ -89,13 +89,8 @@ export const updateReview = async (req, res) => {
     Review.findOneAndUpdate(
       {
         _id: req.params.reviewid
-      },
-      {
-        $set: {
-          ...req.body
-        }
-      },
-      { new: true },
+      },...req.body,
+      { upsert:true },
       (error, review) => {
         if (error) {
           return res.json(errorHandler(true, "Issues updating a review"))

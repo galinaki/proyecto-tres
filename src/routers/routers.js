@@ -47,17 +47,25 @@ Router.get("/",cors(), defaultController)
 .post("/addcourse",cors(),authRequired, addCourse)
 
 
-  //Get all reviews
-.get("/reviews", getReviews)
-
-  //Create review 
+/*
+ *Create Review
+*/  
 .post("/courses/addreview/:courseid",cors(),authRequired, createReview)
-
+/**
+ *Read all Reviews
+ */
+.get("/reviews", getReviews)
+/*
+*Update Review
+*/
 .put("/update/:id/:reviewid",cors(),authRequired,updateReview)
 
-  //Delete review
+/**
+ *Delete Review
+ */
 .delete("/delete/review/:reviewid",cors(),authRequired, deleteReview)
- //Delete Course
+/**
+ *Delete Course
+ */
  .delete("/delete/course/:courseid",cors(),authRequired, deleteCourse);
-//Add a course
 export default Router;
