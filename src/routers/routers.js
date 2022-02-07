@@ -60,4 +60,5 @@ Router.get("/",cors(), defaultController)
  //Delete Course
  .delete("/delete/course/:courseid",cors(),authRequired, deleteCourse);
 //Add a course
+
 export default Router;
