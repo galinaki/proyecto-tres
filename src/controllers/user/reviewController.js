@@ -82,7 +82,7 @@ export const deleteReview = async (req, res) => {
  * UPDATE REVIEW
  */
 export const updateReview = async (req, res) => {
-  console.log(req.params.userid);
+  console.log(req.params.reviewid);
   console.log(mongoose.Types.ObjectId(req.params.id))
 
   try {
@@ -92,7 +92,7 @@ export const updateReview = async (req, res) => {
       },
       {
         $set: {
-          'reviews.$.review': req.body.review
+          ...req.body
         }
       },
       { new: true },

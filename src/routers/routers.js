@@ -53,7 +53,7 @@ Router.get("/",cors(), defaultController)
   //Create review 
 .post("/courses/addreview/:courseid",cors(),authRequired, createReview)
 
-.put("/update/:userid/:id",cors(),authRequired, updateReview)
+.put("/update/:id/:reviewid",cors(),authRequired,updateReview)
 
   //Delete review
 .delete("/delete/review/:reviewid",cors(),authRequired, deleteReview);
