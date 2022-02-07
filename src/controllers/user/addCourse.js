@@ -56,7 +56,10 @@ export const getCourse = async (req, res) => {
   }
 }
 
-
+/**
+ * 
+ * all Courses
+ */
 export const fetchAllCourses = async (req, res) => {
   try {
     const allCourses = await Course.find(
@@ -83,21 +86,47 @@ console.log(allCourses);
 }
 
 /**
+ * UPDATE Course
+ */
+export const updateCourse = async (req, res) => {
+   console.log("first");
+   console.log(req.params.courseid);
+   console.log(mongoose.Types.ObjectId(req.params.courseid))
+  try {
+   Course.findOneAndUpdate(
+      {
+        _id: req.params.courseid
+      },req.body,
+      { upsert:true },
+      (error, course) => {
+        if (error) {
+          return res.json(errorHandler(true, "Issues updating a Course"))
+        } else {
+          res.json(errorHandler(false, "Updating rcourse", course))
+        }
+      })
+  }
+  catch (error) {
+    return res.json(errorHandler(true, "Error updating course"))
+  }
+}
+
+/**
 * DELETE Course
  */
 export const deleteCourse = async (req, res) => {
   try {
     Course.findByIdAndRemove(
-      req.params.id,
+      req.params.courseid,
       { new: true },
       (error, deletedCourse) => {
         if (deletedCourse) {
-          return res.json(errorHandler(false, "Deleting User", deletedCourse))
+          return res.json(errorHandler(false, "Deleting Course", deletedCourse))
         } else {
-          return res.jjson(errorHandler(true, "Error Deleting User",error))
+          return res.json(errorHandler(true, "Error Deleting Course",error))
         }
       })
   } catch (error) {
-    return res.json(errorHandler(true, "Error deleting user"))
+    return res.json(errorHandler(true, "Error deleting course"))
   }
 };
