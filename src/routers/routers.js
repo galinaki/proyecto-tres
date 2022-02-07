@@ -1,6 +1,6 @@
 import express from "express";
 import { getReviews, createReview, deleteReview, updateReview } from "../controllers/user/reviewController.js";
-import { addCourse, getCourse, fetchAllCourses } from "../controllers/user/addCourse.js";
+import { addCourse, getCourse, fetchAllCourses, deleteCourse } from "../controllers/user/addCourse.js";
 import { fetchAllUsers, updateUser, deleteUser } from "../controllers/user/userController.js";
 import defaultController from "../controllers/defaultController.js"
 import { signUpUser, loginUser, logoutUser, authRequired } from "../controllers/auth/authController.js"
@@ -47,6 +47,7 @@ Router.get("/", cors(), defaultController)
   .post("/addcourse", cors(), authRequired, addCourse)
 
 
+<<<<<<< HEAD
   //Get all reviews
   .get("/reviews", getReviews)
 
@@ -59,4 +60,27 @@ Router.get("/", cors(), defaultController)
   .delete("/delete/review/:reviewid", cors(), authRequired, deleteReview);
 
 //Add a coursegi
+=======
+/*
+ *Create Review
+*/
+.post("/courses/addreview/:courseid",cors(),authRequired, createReview)
+/**
+ *Read all Reviews
+ */
+.get("/reviews", getReviews)
+/*
+*Update Review
+*/
+.put("/update/:id/:reviewid",cors(),authRequired,updateReview)
+
+/**
+ *Delete Review
+ */
+.delete("/delete/review/:reviewid",cors(),authRequired, deleteReview)
+/**
+ *Delete Course
+ */
+ .delete("/delete/course/:courseid",cors(),authRequired, deleteCourse);
+>>>>>>> 2bdab7f77181dadf1d141b5cd862439097c66fdc
 export default Router;

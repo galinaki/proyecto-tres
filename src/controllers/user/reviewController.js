@@ -82,20 +82,15 @@ export const deleteReview = async (req, res) => {
  * UPDATE REVIEW
  */
 export const updateReview = async (req, res) => {
-  console.log(req.params.userid);
+  console.log(req.params.reviewid);
   console.log(mongoose.Types.ObjectId(req.params.id))
 
   try {
     Review.findOneAndUpdate(
       {
         _id: req.params.reviewid
-      },
-      {
-        $set: {
-          'reviews.$.review': req.body.review
-        }
-      },
-      { new: true },
+      },...req.body,
+      { upsert:true },
       (error, review) => {
         if (error) {
           return res.json(errorHandler(true, "Issues updating a review"))
