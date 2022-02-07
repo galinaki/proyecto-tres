@@ -1,6 +1,6 @@
 import express from "express";
 import { getReviews, createReview, deleteReview, updateReview } from "../controllers/user/reviewController.js";
-import {addCourse,getCourse,fetchAllCourses,deleteCourse} from "../controllers/user/addCourse.js";
+import {addCourse,getCourse,fetchAllCourses,deleteCourse, updateCourse} from "../controllers/user/addCourse.js";
 import { fetchAllUsers, updateUser, deleteUser } from "../controllers/user/userController.js";
 import defaultController from "../controllers/defaultController.js"
 import {signUpUser,loginUser,logoutUser, authRequired} from "../controllers/auth/authController.js"
@@ -58,8 +58,11 @@ Router.get("/",cors(), defaultController)
 /*
 *Update Review
 */
-.put("/update/:id/:reviewid",cors(),authRequired,updateReview)
-
+.put("/update/:id/:reviewid", cors(), authRequired, updateReview)
+/*
+*Update Course
+*/
+.put("/updating/course/:courseid",cors(), authRequired,updateCourse)
 /**
  *Delete Review
  */
