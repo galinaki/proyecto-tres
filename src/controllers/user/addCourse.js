@@ -81,3 +81,23 @@ console.log(allCourses);
     return res.status(400).json(errorHandler(true, "Error Fetching Course(s"))
   }
 }
+
+/**
+* DELETE Course
+ */
+export const deleteCourse = async (req, res) => {
+  try {
+    Course.findByIdAndRemove(
+      req.params.id,
+      { new: true },
+      (error, deletedCourse) => {
+        if (deletedCourse) {
+          return res.json(errorHandler(false, "Deleting User", deletedCourse))
+        } else {
+          return res.jjson(errorHandler(true, "Error Deleting User",error))
+        }
+      })
+  } catch (error) {
+    return res.json(errorHandler(true, "Error deleting user"))
+  }
+};
