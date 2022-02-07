@@ -58,7 +58,7 @@ Router.get("/", cors(), defaultController)
   /*
   *Update Review
   */
-  .put("/update/:id/:reviewid", cors(), authRequired, updateReview)
+  .put("/update/review/:reviewid", cors(), authRequired, updateReview)
   /*
   *Update Course
   */

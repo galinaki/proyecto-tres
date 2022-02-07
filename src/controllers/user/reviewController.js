@@ -89,7 +89,7 @@ export const updateReview = async (req, res) => {
     Review.findOneAndUpdate(
       {
         _id: req.params.reviewid
-      },...req.body,
+      },req.body,
       { upsert:true },
       (error, review) => {
         if (error) {
