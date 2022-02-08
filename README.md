@@ -15,15 +15,15 @@ See the [Wireframes](https://whimsical.com/react-architecture-exercise-RBBXMDbZM
 
 #### MVP
 
-Technologies like JS=> Courses and Reviews
-Likes count towards their placement on the screen
-C.R.U.D. for comments
+-Technologies like JS=> Courses and Reviews
+-Likes count towards their placement on the screen
+-C.R.U.D. for comments
 
 #### PostMVP
 
-Authorization for adding a course
-Deleting
-Update
+-Authorization for adding a course
+-Deleting
+-Update
 
 ## Project Schedule
 
